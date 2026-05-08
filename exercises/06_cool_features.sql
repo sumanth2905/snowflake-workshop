@@ -207,7 +207,7 @@ FROM MOVIES SAMPLE (70)
 GROUP BY genre;
 
 -- 📝 YOUR TURN: Sample 60% of STREAMING_VIEWS
-SELECT * FROM STREAMING_VIEWS SAMPLE (60);
+
 
 
 
@@ -299,13 +299,7 @@ WHERE table_name = 'MOVIES'
 ORDER BY ordinal_position;
 
 -- 📝 YOUR TURN: Find all columns in the USERS table
-SELECT 
-    column_name,
-    data_type,
-    is_nullable
-FROM INFORMATION_SCHEMA.COLUMNS
-WHERE table_name = 'USERS'
-ORDER BY ordinal_position;
+
 
 
 

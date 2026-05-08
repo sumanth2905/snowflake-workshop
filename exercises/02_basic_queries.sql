@@ -155,9 +155,7 @@ ORDER BY genre ASC, rating DESC;
 -- This shows movies grouped by genre, with highest-rated first in each genre
 
 -- 📝 YOUR TURN: Sort users by country, then by username within each country
-SELECT username, country, subscription_type
-FROM USERS
-ORDER BY country ASC, username ASC;
+
 
 
 
@@ -191,9 +189,7 @@ LIMIT 5;
 
 -- 📝 YOUR TURN: Show 3 users with Premium subscription
 -- Hint: We'll learn filtering in the next exercise, but try ORDER BY and LIMIT for now
-SELECT username, subscription_type, country
-FROM USERS
-LIMIT 3;
+
 
 
 
@@ -222,7 +218,7 @@ SELECT DISTINCT device_type FROM STREAMING_VIEWS;
 
 
 -- 📝 YOUR TURN: What years are our movies from?
-SELECT DISTINCT release_year FROM MOVIES ORDER BY release_year DESC;
+
 
 
 

@@ -104,9 +104,7 @@ FROM STREAMING_VIEWS;
 
 
 -- 📝 YOUR TURN: What's the average watch duration for Mobile devices?
-SELECT ROUND(AVG(watch_duration_minutes), 2) AS avg_mobile_duration
-FROM STREAMING_VIEWS
-WHERE device_type = 'Mobile';
+
 
 
 
@@ -139,10 +137,7 @@ SELECT
 FROM STREAMING_VIEWS;
 
 -- 📝 YOUR TURN: Find the earliest and latest join dates for users
-SELECT 
-    MIN(join_date) AS first_user,
-    MAX(join_date) AS latest_user
-FROM USERS;
+
 
 
 /*
@@ -177,11 +172,7 @@ FROM STREAMING_VIEWS;
 -- - Number of Basic users
 -- Hint: Use COUNT with WHERE in subqueries, or use CASE (we'll learn this later)
 
-SELECT 
-    COUNT(*) AS total_users,
-    COUNT(CASE WHEN subscription_type = 'Premium' THEN 1 END) AS premium_users,
-    COUNT(CASE WHEN subscription_type = 'Basic' THEN 1 END) AS basic_users
-FROM USERS;
+
 
 
 
@@ -227,12 +218,7 @@ GROUP BY subscription_type;
 
 
 -- 📝 YOUR TURN: Count movies by release year
-SELECT 
-    release_year,
-    COUNT(*) AS movies_released
-FROM MOVIES
-GROUP BY release_year
-ORDER BY release_year DESC;
+
 
 
 
@@ -271,13 +257,7 @@ ORDER BY total_minutes DESC;
 -- - Country name
 -- - Number of users
 -- - Number of Premium users (use COUNT with CASE)
-SELECT 
-    country,
-    COUNT(*) AS total_users,
-    COUNT(CASE WHEN subscription_type = 'Premium' THEN 1 END) AS premium_users
-FROM USERS
-GROUP BY country
-ORDER BY total_users DESC;
+
 
 
 
@@ -311,14 +291,7 @@ ORDER BY release_year DESC, genre;
 
 -- 📝 YOUR TURN: Show viewing statistics by device_type and user_id
 -- Include: device_type, user_id, count of views, total minutes watched
-SELECT 
-    device_type,
-    user_id,
-    COUNT(*) AS view_count,
-    SUM(watch_duration_minutes) AS total_minutes
-FROM STREAMING_VIEWS
-GROUP BY device_type, user_id
-ORDER BY total_minutes DESC;
+
 
 
 
@@ -363,26 +336,14 @@ HAVING AVG(rating) > 8.0
 ORDER BY avg_rating DESC;
 
 -- 📝 YOUR TURN: Find device types where total watch time exceeds 300 minutes
-SELECT 
-    device_type,
-    SUM(watch_duration_minutes) AS total_minutes
-FROM STREAMING_VIEWS
-GROUP BY device_type
-HAVING SUM(watch_duration_minutes) > 300
-ORDER BY total_minutes DESC;
+
 
 
 
 
 -- 📝 YOUR TURN: Find users who have watched more than 2 times
 -- Hint: Group by user_id, count views, filter with HAVING
-SELECT 
-    user_id,
-    COUNT(*) AS view_count
-FROM STREAMING_VIEWS
-GROUP BY user_id
-HAVING COUNT(*) > 2
-ORDER BY view_count DESC;
+
 
 
 
@@ -424,14 +385,7 @@ ORDER BY total_minutes DESC;
 
 -- 📝 YOUR TURN: Count Premium users by country,
 -- only for countries with more than 1 Premium user
-SELECT 
-    country,
-    COUNT(*) AS premium_user_count
-FROM USERS
-WHERE subscription_type = 'Premium'
-GROUP BY country
-HAVING COUNT(*) > 1
-ORDER BY premium_user_count DESC;
+
 
 
 

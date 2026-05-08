@@ -128,15 +128,7 @@ This joins all 3 tables!
 -- 📝 YOUR TURN: Show viewing data with usernames and movie titles
 -- Include: username, movie title, watch duration, device type
 -- Order by username
-SELECT 
-    u.username,
-    m.title AS movie_title,
-    sv.watch_duration_minutes,
-    sv.device_type
-FROM STREAMING_VIEWS sv
-INNER JOIN USERS u ON sv.user_id = u.user_id
-INNER JOIN MOVIES m ON sv.movie_id = m.movie_id
-ORDER BY u.username;
+
 
 
 
@@ -176,16 +168,7 @@ ORDER BY sv.watch_duration_minutes DESC;
 
 -- 📝 YOUR TURN: Show movies watched by Premium users
 -- Include: username, subscription type, movie title, watch duration
-SELECT 
-    u.username,
-    u.subscription_type,
-    m.title AS movie_title,
-    sv.watch_duration_minutes
-FROM STREAMING_VIEWS sv
-INNER JOIN USERS u ON sv.user_id = u.user_id
-INNER JOIN MOVIES m ON sv.movie_id = m.movie_id
-WHERE u.subscription_type = 'Premium'
-ORDER BY u.username;
+
 
 
 
@@ -247,28 +230,14 @@ ORDER BY view_count DESC;
 
 -- 📝 YOUR TURN: Show total watch time by country
 -- Include: country, total minutes watched, number of views
-SELECT 
-    u.country,
-    SUM(sv.watch_duration_minutes) AS total_minutes,
-    COUNT(*) AS view_count
-FROM STREAMING_VIEWS sv
-INNER JOIN USERS u ON sv.user_id = u.user_id
-GROUP BY u.country
-ORDER BY total_minutes DESC;
+
 
 
 
 
 -- 📝 YOUR TURN: Show viewing statistics by device type
 -- Include: device type, number of unique users, total views, avg watch duration
-SELECT 
-    sv.device_type,
-    COUNT(DISTINCT sv.user_id) AS unique_users,
-    COUNT(*) AS total_views,
-    ROUND(AVG(sv.watch_duration_minutes), 2) AS avg_duration
-FROM STREAMING_VIEWS sv
-GROUP BY sv.device_type
-ORDER BY total_views DESC;
+
 
 
 
@@ -310,15 +279,7 @@ LEFT JOIN STREAMING_VIEWS sv ON m.movie_id = sv.movie_id
 WHERE sv.view_id IS NULL;
 
 -- 📝 YOUR TURN: Show ALL users and how many movies they've watched (including users with 0 views)
-SELECT 
-    u.user_id,
-    u.username,
-    u.country,
-    COUNT(sv.view_id) AS movies_watched
-FROM USERS u
-LEFT JOIN STREAMING_VIEWS sv ON u.user_id = sv.user_id
-GROUP BY u.user_id, u.username, u.country
-ORDER BY movies_watched DESC;
+
 
 
 

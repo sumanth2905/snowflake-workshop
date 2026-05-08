@@ -146,9 +146,7 @@ WHERE country = 'USA' OR country = 'Canada';
 
 
 -- 📝 YOUR TURN: Streaming views on either Mobile or Tablet devices
-SELECT view_id, device_type, watch_duration_minutes
-FROM STREAMING_VIEWS
-WHERE device_type = 'Mobile' OR device_type = 'Tablet';
+
 
 
 
@@ -212,9 +210,7 @@ WHERE country IN ('USA', 'UK', 'Canada');
 
 
 -- 📝 YOUR TURN: Streaming views on Smart TV, Laptop, or Tablet
-SELECT view_id, device_type, user_id
-FROM STREAMING_VIEWS
-WHERE device_type IN ('Smart TV', 'Laptop', 'Tablet');
+
 
 
 
@@ -244,9 +240,7 @@ WHERE release_year BETWEEN 2022 AND 2023;
 
 
 -- 📝 YOUR TURN: Users who joined between 2022-01-01 and 2022-12-31
-SELECT username, join_date
-FROM USERS
-WHERE join_date BETWEEN '2022-01-01' AND '2022-12-31';
+
 
 
 
@@ -323,9 +317,7 @@ WHERE genre NOT IN ('Sci-Fi', 'Drama');
 
 
 -- 📝 YOUR TURN: Movies with rating NOT between 7.0 and 8.0
-SELECT title, rating
-FROM MOVIES
-WHERE rating NOT BETWEEN 7.0 AND 8.0;
+
 
 
 
